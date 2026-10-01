@@ -1,0 +1,165 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>My Day ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fbeef3;--card:#fff;--ink:#2e1a30;--mute:#7d6682;--pink:#e8547f;--pink2:#ffd3df;--lav:#e6dcff;--mint:#d5ebdc;--line:#f0d9e3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1d1220;--card:#2a1b2e;--ink:#fbeaf1;--mute:#b79cbd;--pink2:#4a2a3b;--lav:#3a2d55;--mint:#294036;--line:#43304a}}
+:root[data-theme="dark"]{--bg:#1d1220;--card:#2a1b2e;--ink:#fbeaf1;--mute:#b79cbd;--pink2:#4a2a3b;--lav:#3a2d55;--mint:#294036;--line:#43304a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:600 15px/1.45 Nunito,system-ui,sans-serif}
+#app{max-width:520px;margin:0 auto;padding:18px 16px 110px}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;margin:.2em 0}h1{font-size:30px;font-weight:800}h2{font-size:22px}h3{font-size:17px}
+.mute{color:var(--mute);font-weight:600;font-size:13px}
+.card{background:var(--card);border-radius:22px;padding:14px;margin:12px 0;border:1px solid var(--line)}
+button,select,input,textarea{font:inherit;color:inherit}
+button{border:0;border-radius:16px;padding:10px 14px;background:var(--lav);cursor:pointer;font-weight:800}
+button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid var(--pink);outline-offset:2px}
+.big{width:100%;font-size:20px;padding:20px;background:var(--pink);color:#fff;border-radius:26px;margin:8px 0;font-family:Fraunces,serif}
+.row{display:flex;gap:8px;flex-wrap:wrap}.row>*{flex:1 1 auto}
+input,textarea,select{width:100%;padding:10px 12px;border-radius:14px;border:1px solid var(--line);background:var(--bg);margin:4px 0}
+.banner{background:var(--pink2);border-radius:22px;padding:14px;margin:10px 0}
+.tl{border-left:3px solid var(--pink2);margin-left:14px;padding-left:16px}
+.ev{position:relative;margin:0 0 14px}.ev:before{content:attr(data-i);position:absolute;left:-34px;top:0;background:var(--bg);font-size:18px}
+.ev img,.pg img{width:100%;max-height:260px;object-fit:cover;border-radius:16px;margin-top:6px}
+.ev small{color:var(--mute)}.ev button{padding:3px 9px;font-size:12px;margin:4px 4px 0 0}
+nav{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--line);display:flex;justify-content:center;padding:6px 6px calc(6px + env(safe-area-inset-bottom,0px))}
+nav div{display:flex;max-width:520px;width:100%}nav button{flex:1;background:none;font-size:11px;padding:6px 2px;border-radius:12px;color:var(--mute)}nav button b{display:block;font-size:20px}nav .on{background:var(--pink2);color:var(--ink)}
+.chat{display:flex;flex-direction:column;gap:8px;margin:10px 0}.m{max-width:82%;padding:10px 13px;border-radius:18px}.m.b{background:var(--lav);border-bottom-left-radius:4px}.m.u{background:var(--pink);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}.m img{width:100%;border-radius:12px;margin-top:4px}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.cal button{padding:8px 0;font-size:13px;background:var(--bg)}.cal .has{background:var(--pink2)}.cal .sel{outline:2px solid var(--pink)}
+.mood button{font-size:22px;padding:6px 10px}.mood .on{background:var(--pink2);outline:2px solid var(--pink)}
+.bar{background:var(--pink);border-radius:8px 8px 0 0;min-height:3px}
+.ov{position:fixed;inset:0;background:rgba(30,10,35,.55);z-index:20;display:flex;align-items:flex-end;justify-content:center}
+.sheet{background:var(--bg);width:100%;max-width:520px;max-height:92%;overflow:auto;border-radius:26px 26px 0 0;padding:16px 16px calc(20px + env(safe-area-inset-bottom,0px))}
+.story{position:fixed;inset:0;z-index:30;background:var(--bg);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px)}
+.pgs{flex:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.pg{flex:0 0 100%;scroll-snap-align:center;padding:28px 22px;overflow:auto;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.pg:nth-child(3n+1){background:var(--pink2)}.pg:nth-child(3n+2){background:var(--lav)}.pg:nth-child(3n){background:var(--mint)}
+.pg h2{font-size:30px}.pg .big2{font-family:Fraunces,serif;font-size:22px}.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}.grid img{height:130px;margin:0}
+.sbar{display:flex;justify-content:space-between;align-items:center;padding:10px 14px}
+@media(prefers-reduced-motion:no-preference){.sheet{animation:up .25s ease-out}@keyframes up{from{transform:translateY(40px);opacity:0}}}
+</style></head><body><div id="app"></div><nav><div id="nav"></div></nav><div id="ov"></div>
+<script>
+const C={wake:['🌅','Woke up'],skin:['🧴','Skincare'],meal:['🍽️','Meal'],water:['💧','Water'],work:['💼','Work'],gym:['🏋️','Workout'],study:['📚','Study'],journal:['📖','Journal'],mood:['😌','Mood check-in'],moment:['📸','Little moment'],out:['🚗','Out & about'],sleep:['🌙','Night check-in'],weight:['⚖️','Weight']};
+const MOODS=['😄','😌','😐','😴','😣'];
+let S={e:[],chat:[],last:0,set:{name:'Risini',iv:60,from:7,to:22,paused:false,unit:'kg'}},tab='home',vd=null,ci=null,sh=null,pend=null,calM=null,q='';
+try{const r=localStorage.getItem('myday');if(r){const p=JSON.parse(r);S={...S,...p,set:{...S.set,...p.set}}}}catch(x){}
+function save(){try{localStorage.setItem('myday',JSON.stringify(S))}catch(x){toast('Storage is full. Delete some photos or export first.')}}
+const pad=n=>String(n).padStart(2,'0'),dk=t=>{const d=new Date(t);return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())};
+const today=()=>dk(Date.now());vd=today();
+const tm=t=>new Date(t).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+const dlong=k=>new Date(k+'T12:00').toLocaleDateString([],{weekday:'long',month:'long',day:'numeric'});
+const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const dayE=k=>S.e.filter(x=>dk(x.ts)===k).sort((a,b)=>a.ts-b.ts);
+const $=id=>document.getElementById(id);
+function toast(m){const t=document.createElement('div');t.textContent=m;t.style.cssText='position:fixed;top:16px;left:50%;transform:translateX(-50%);background:#2e1a30;color:#fff;padding:10px 16px;border-radius:14px;z-index:99;font-weight:800';document.body.appendChild(t);setTimeout(()=>t.remove(),2600)}
+function stats(k){const es=dayE(k);const sum=(c,f)=>es.filter(x=>x.cat===c).reduce((a,x)=>a+(+x[f]||0),0);
+return{n:es.length,water:es.reduce((a,x)=>a+(+x.ml||0),0),gym:sum('gym','mins'),study:sum('study','mins'),skin:es.filter(x=>x.cat==='skin').length,xp:es.reduce((a,x)=>a+10+(x.photo?5:0),0),photos:es.filter(x=>x.photo).length,wt:(es.filter(x=>x.cat==='weight').pop()||{}).wt}}
+const toU=k=>S.set.unit==='lb'?+(k*2.20462).toFixed(1):+(+k).toFixed(1),fW=k=>toU(k)+' '+S.set.unit;
+function lastWt(before){return S.e.filter(x=>x.cat==='weight'&&dk(x.ts)<before).sort((a,b)=>b.ts-a.ts)[0]}
+function logWt(){const v=parseFloat($('wi').value);if(!(v>20&&v<700)){toast('Enter a weight between 20 and 700');return}const kg=S.set.unit==='lb'?v/2.20462:v,t=dayE(today()).filter(x=>x.cat==='weight').pop();if(t){t.wt=kg;t.title='Weight — '+fW(kg)}else add({cat:'weight',title:'Weight — '+fW(kg),wt:kg});save();toast('⚖️ Weight saved');render()}
+function streak(){let n=0,d=new Date();if(!dayE(dk(d)).length)d.setDate(d.getDate()-1);while(dayE(dk(d)).length){n++;d.setDate(d.getDate()-1)}return n}
+function add(e){const o={id:Date.now()+''+Math.random().toString(36).slice(2,5),ts:Date.now(),...e};S.e.push(o);save();return o}
+// check-ins
+const POOL=['Hey you 👀 what are you doing right now?','It’s been an hour. Come show me what you’re up to 💗','Okay, I need an update. Where are we and what are we doing? 😂','You’ve been suspiciously quiet 👀 Give me today’s update.'];
+function ciMsg(){const h=new Date().getHours(),es=dayE(today()),meals=es.filter(x=>x.cat==='meal'),lunch=meals.some(x=>/lunch/i.test(x.title));
+if(h>=11&&h<=14&&!lunch)return'Lunch time? Show me what you’re eating 👀📸';
+if(h>=15&&h<19&&!lunch&&!meals.length)return'Did you ever get lunch? 👀';
+const w=es.filter(x=>x.ml).length;let p=POOL.slice();if(w>=3)p=p.slice(0,1).concat(p.slice(2));return p[Math.floor(Math.random()*p.length)]}
+function due(){const s=S.set,h=new Date().getHours();return!s.paused&&h>=s.from&&h<s.to&&Date.now()-S.last>=s.iv*60000}
+function tick(){if(due()&&!ci){ci=ciMsg();S.last=Date.now();save();try{if(window.Notification&&Notification.permission==='granted')new Notification('My Day ✨',{body:ci})}catch(x){}if(tab==='home'&&!$('ov').innerHTML)render()}}
+setInterval(tick,30000);setTimeout(tick,1500);
+// photo
+function readPhoto(f,cb){if(!f)return;const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const s=Math.min(1,900/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*s;c.height=i.height*s;c.getContext('2d').drawImage(i,0,0,c.width,c.height);cb(c.toDataURL('image/jpeg',.65))};i.src=r.result};r.readAsDataURL(f)}
+// sheet
+function openSheet(o){const ex=o.id?S.e.find(x=>x.id===o.id):null;sh={id:ex&&ex.id,cat:(ex||o).cat||'moment',photo:ex&&ex.photo||o.photo||null,mood:ex&&ex.mood||''};const e=ex||o,t=new Date(ex?ex.ts:Date.now());
+$('ov').innerHTML=`<div class="ov" onclick="if(event.target===this)closeSheet()"><div class="sheet" role="dialog" aria-label="Snap update"><h2>${ex?'Edit entry':'📸 Snap Update'}</h2>
+<p class="mute">Camera only opens when you tap a button below. Nothing is sent anywhere.</p>
+<div id="pv">${sh.photo?`<img src="${sh.photo}" style="width:100%;border-radius:16px">`:''}</div>
+<div class="row"><button onclick="$('fc').click()">📷 Take photo</button><button onclick="$('fl').click()">🖼️ Choose photo</button></div>
+<input id="fc" type="file" accept="image/*" capture="environment" hidden onchange="pickPh(this)"><input id="fl" type="file" accept="image/*" hidden onchange="pickPh(this)">
+<label class="mute">Category</label><select id="f_cat" onchange="sh.cat=this.value">${Object.entries(C).map(([k,v])=>`<option value="${k}" ${k===sh.cat?'selected':''}>${v[0]} ${v[1]}</option>`).join('')}</select>
+<label class="mute">What I’m doing</label><input id="f_t" value="${esc(e.title||'')}" placeholder="e.g. Lunch, Gym, Studying Economics">
+<label class="mute">Eating / drinking</label><input id="f_e" value="${esc(e.eat||'')}" placeholder="Chicken rice + yogurt">
+<label class="mute">Mood</label><div class="mood row" id="f_m">${MOODS.map(m=>`<button class="${m===sh.mood?'on':''}" onclick="sh.mood=sh.mood==='${m}'?'':'${m}';document.querySelectorAll('#f_m button').forEach(b=>b.classList.toggle('on',b.textContent===sh.mood))">${m}</button>`).join('')}</div>
+<div class="row"><div><label class="mute">Who I’m with</label><input id="f_w" value="${esc(e.who||'')}" placeholder="optional"></div><div><label class="mute">Place</label><input id="f_p" value="${esc(e.place||'')}" placeholder="typed by you"></div></div>
+<div class="row"><div><label class="mute">Time</label><input id="f_ti" type="time" value="${pad(t.getHours())}:${pad(t.getMinutes())}"></div><div><label class="mute">Minutes (workout / study)</label><input id="f_mi" type="number" min="0" value="${e.mins||''}"></div></div>
+<label class="mute">Notes</label><textarea id="f_n" rows="2">${esc(e.note||'')}</textarea>
+<div class="row" style="margin-top:10px"><button style="background:var(--pink);color:#fff" onclick="saveSheet()">Save entry</button>${ex?`<button onclick="delE('${ex.id}')">Delete</button>`:''}<button onclick="closeSheet()">Cancel</button></div></div></div>`}
+function pickPh(i){readPhoto(i.files[0],d=>{sh.photo=d;$('pv').innerHTML=`<img src="${d}" style="width:100%;border-radius:16px">`})}
+function closeSheet(){$('ov').innerHTML=''}
+function saveSheet(){const [h,m]=$('f_ti').value.split(':'),d=new Date(sh.id?S.e.find(x=>x.id===sh.id).ts:Date.now());d.setHours(+h||0,+m||0);
+const f={cat:sh.cat,title:$('f_t').value.trim()||C[sh.cat][1],eat:$('f_e').value.trim(),mood:sh.mood,who:$('f_w').value.trim(),place:$('f_p').value.trim(),mins:+$('f_mi').value||0,note:$('f_n').value.trim(),photo:sh.photo,ts:d.getTime()};
+if(sh.id)Object.assign(S.e.find(x=>x.id===sh.id),f);else add(f);save();closeSheet();vd=dk(f.ts);toast('Saved ✨');render()}
+function delE(id){S.e=S.e.filter(x=>x.id!==id);save();closeSheet();render()}
+function quick(c,o){add({cat:c,title:C[c][1],...o});toast(C[c][0]+' added');ci=null;render()}
+function bottle(){const n=dayE(today()).filter(x=>x.ml===750).length+1;add({cat:'water',title:'Bottle #'+n+' — 750 mL',ml:750});toast('💧 Bottle #'+n);render()}
+// views
+function evHtml(x,edit){return`<div class="ev" data-i="${C[x.cat]?.[0]||'✨'}"><b>${tm(x.ts)}</b> ${esc(x.title)}${x.mins?` · ${x.mins} min`:''}${x.mood?' '+x.mood:''}${x.photo?' 📸':''}
+${x.eat?`<div>${esc(x.eat)}</div>`:''}${x.who?`<small>with ${esc(x.who)}</small> `:''}${x.place?`<small>@ ${esc(x.place)}</small>`:''}${x.note?`<div class="mute">“${esc(x.note)}”</div>`:''}${x.photo?`<img src="${x.photo}" alt="">`:''}${edit?`<div>${x.cat==='weight'?'':`<button onclick="openSheet({id:'${x.id}'})">Edit</button>`}<button onclick="delE('${x.id}')">Delete</button></div>`:''}</div>`}
+function home(){const s=stats(today()),h=new Date().getHours(),g=h<12?'Good morning':h<18?'Good afternoon':'Good evening',es=dayE(today()).slice(-3).reverse();
+return`<h1>${g}, ${esc(S.set.name)} ✨</h1><div class="mute">${dlong(today())}</div>
+${ci?`<div class="banner"><b>${esc(ci)}</b><div class="row" style="margin-top:8px"><button style="background:var(--pink);color:#fff" onclick="ci=null;openSheet({})">📸 Snap Update</button><button onclick="ci=null;render()">Later</button></div></div>`:''}
+<button class="big" onclick="openSheet({})">📸 Snap Update</button>
+<div class="row"><button onclick="quick('wake')">🌅 Woke up</button><button onclick="quick('skin')">🧴 Skincare</button><button onclick="quick('water',{ml:250,title:'Water — 250 mL'})">💧 +250</button><button onclick="bottle()">🍼 Bottle 750</button></div>
+<div class="row" style="margin-top:8px"><button onclick="openSheet({cat:'meal',title:'Lunch'})">🍱 Meal</button><button onclick="openSheet({cat:'gym'})">🏋️ Workout</button><button onclick="openSheet({cat:'study'})">📚 Study</button><button onclick="openSheet({cat:'journal'})">📖 Journal</button></div>
+${(()=>{const tw=dayE(today()).filter(x=>x.cat==='weight').pop(),pv=lastWt(today()),ref=tw?lastWt(today()):lastWt(dk(Date.now()+864e5)),d=tw&&pv?tw.wt-pv.wt:null;return`<div class="card"><h3>⚖️ Weight</h3><div class="row"><input id="wi" type="number" step="0.1" min="0" inputmode="decimal" placeholder="${S.set.unit}" aria-label="Weight in ${S.set.unit}" value="${tw?toU(tw.wt):''}" style="flex:2"><button onclick="logWt()">${tw?'Update today':'Log weight'}</button></div><div class="mute">${tw?'Logged at '+tm(tw.ts)+(d!==null?' · '+(d>=0?'+':'')+toU(d*(S.set.unit==='lb'?1:1))+' '+S.set.unit+' since '+dlong(dk(pv.ts)).split(',')[0]:''):(pv?'Last: '+fW(pv.wt)+' on '+dlong(dk(pv.ts)):'Optional. Log whenever suits you.')}</div></div>`})()}
+<div class="card"><h3>Today so far</h3><div class="row"><span>💧 ${(s.water/1000).toFixed(2)} L</span><span>🏋️ ${s.gym} min</span><span>📚 ${s.study} min</span><span>🧴 ${s.skin}/2</span><span>⭐ ${s.xp} XP</span><span>🔥 ${streak()}</span></div></div>
+<div class="card"><h3>Latest</h3>${es.length?`<div class="tl">${es.map(x=>evHtml(x)).join('')}</div>`:'<p class="mute">Nothing logged yet. Tap Snap Update or a quick button to start your day.</p>'}</div>`}
+function say(t,who,x){S.chat.push({w:who,t,...x});save()}
+function chat(){return`<h1>Companion 💬</h1><p class="mute">I only know what you’ve saved in the app and the photos you send me. I can’t see through your camera.</p>
+<div class="chat" id="cl">${S.chat.map((m,i)=>`<div class="m ${m.w}">${esc(m.t)}${m.photo?`<img src="${m.photo}" alt="">`:''}${m.act&&i===S.chat.length-1?`<div class="row" style="margin-top:6px"><button onclick="yes()">Yes, save it</button><button onclick="no()">Not now</button></div>`:''}</div>`).join('')||'<p class="mute">Say hi, or tell me what you’re up to.</p>'}</div>
+<div class="row"><input id="ci" placeholder="Message…" onkeydown="if(event.key==='Enter')send()" style="flex:3"><button onclick="send()">Send</button></div>
+<div class="row" style="margin-top:6px"><button onclick="$('cp').click()">📷 Send a photo</button></div><input id="cp" type="file" accept="image/*" hidden onchange="readPhoto(this.files[0],d=>{pend={photo:d};say('','u',{photo:d});say('Got it 📸 What is it? Tell me and I’ll offer to save it to today.','b');render()})">`}
+function guessCat(t){return/lunch|breakfast|dinner|snack|eat|rice|coffee/i.test(t)?'meal':/gym|workout|run/i.test(t)?'gym':'moment'}
+function send(){const v=$('ci').value.trim();if(!v)return;say(v,'u');
+if(pend&&pend.photo&&!pend.text){pend.text=v;pend.cat=guessCat(v);say(`Save “${v}” with your photo as ${C[pend.cat][1].toLowerCase()} in today’s timeline?`,'b',{act:1})}
+else{const es=dayE(today()),l=v.toLowerCase();let r;
+if(/(having|eating|about to eat|time for).*(lunch|breakfast|dinner|snack)|^(lunch|breakfast|dinner)/.test(l))r='Ooh, show me 👀📸';
+else if(/how.*(today|day)|summar/.test(l))r=es.length?'Here’s what you’ve recorded today: '+es.map(x=>tm(x.ts)+' '+x.title).join(', ')+'. That’s '+es.length+' entries 💗':'You haven’t logged anything today yet, so I don’t want to guess. Want to add something?';
+else r=['Tell me more 👀','Aww okay 💗 want to snap an update?','Noted. I only know what you’ve logged, so show me when you’re ready 📸'][Math.floor(Math.random()*3)];
+say(r,'b')}render()}
+function yes(){add({cat:pend.cat,title:pend.text,photo:pend.photo,eat:pend.cat==='meal'?pend.text:''});say('Added to today 💗','b');pend=null;render()}
+function no(){say('No problem, I won’t save it.','b');pend=null;render()}
+function day(){const es=dayE(vd),d=new Date(vd+'T12:00'),cm=calM||vd.slice(0,7),[Y,M]=cm.split('-').map(Number),first=new Date(Y,M-1,1).getDay(),n=new Date(Y,M,0).getDate();
+let cells='';for(let i=0;i<first;i++)cells+='<span></span>';for(let i=1;i<=n;i++){const k=Y+'-'+pad(M)+'-'+pad(i);cells+=`<button class="${dayE(k).length?'has':''} ${k===vd?'sel':''}" onclick="vd='${k}';render()">${i}</button>`}
+const res=q?S.e.filter(x=>(x.title+' '+x.eat+' '+x.note+' '+x.place+' '+x.who+' '+C[x.cat][1]+' '+(/gym|workout/i.test(q)&&x.cat==='gym'?q:'')).toLowerCase().includes(q.toLowerCase())).sort((a,b)=>b.ts-a.ts).slice(0,30):[];
+return`<h1>My Day ✨</h1><div class="row"><button onclick="shift(-1)">◀</button><b style="flex:3;text-align:center">${dlong(vd)}</b><button onclick="shift(1)">▶</button></div>
+<div class="row" style="margin-top:10px"><button style="background:var(--pink);color:#fff" onclick="story('${vd}')">📖 Open storybook</button><button onclick="openSheet({})">＋ Add</button><button onclick="if(confirm('Delete this whole day?')){S.e=S.e.filter(x=>dk(x.ts)!==vd);save();render()}">Delete day</button></div>
+<div class="card">${es.length?`<div class="tl">${es.map(x=>evHtml(x,1)).join('')}</div>`:'<p class="mute">No entries for this day.</p>'}</div>
+<h2>My Life Archive</h2><div class="row"><button onclick="calM=mo(cm,-1);render()">◀</button><b style="flex:3;text-align:center">${new Date(Y,M-1,1).toLocaleDateString([],{month:'long',year:'numeric'})}</b><button onclick="calM=mo(cm,1);render()">▶</button></div>
+<div class="cal card">${cells}</div>
+<input id="qs" value="${esc(q)}" placeholder="Search: gym, lunch, Economics…" oninput="q=this.value;clearTimeout(window.qt);window.qt=setTimeout(()=>{render();const i=$('qs');i.focus();i.setSelectionRange(99,99)},300)">
+${res.map(x=>`<div class="card" onclick="vd='${dk(x.ts)}';q='';render()" style="cursor:pointer"><span class="mute">${dlong(dk(x.ts))}</span><br>${C[x.cat][0]} ${esc(x.title)} ${x.photo?'📸':''}</div>`).join('')}${q&&!res.length?'<p class="mute">No matches.</p>':''}`}
+function mo(cm,d){const [y,m]=cm.split('-').map(Number),t=new Date(y,m-1+d,1);return t.getFullYear()+'-'+pad(t.getMonth()+1)}
+function shift(d){const t=new Date(vd+'T12:00');t.setDate(t.getDate()+d);vd=dk(t);calM=null;render()}
+function prog(){const days=[...Array(7)].map((_,i)=>{const d=new Date();d.setDate(d.getDate()-6+i);const k=dk(d);return{k,l:d.toLocaleDateString([],{weekday:'short'}),s:stats(k)}}),mx=Math.max(1,...days.map(d=>d.s.water));
+const xp=S.e.reduce((a,x)=>a+10+(x.photo?5:0),0),s=stats(today());
+return`<h1>Progress 📊</h1><div class="card"><div class="row"><div>🔥 <b>${streak()}</b> day streak</div><div>⭐ <b>${xp}</b> total XP</div><div>📸 <b>${S.e.filter(x=>x.photo).length}</b> photos</div></div></div>
+<div class="card"><h3>Water this week</h3><div style="display:flex;gap:6px;align-items:flex-end;height:110px">${days.map(d=>`<div style="flex:1;text-align:center"><div class="bar" style="height:${d.s.water/mx*80}px"></div><div class="mute">${d.l}</div></div>`).join('')}</div></div>
+${(()=>{const pts=S.e.filter(x=>x.cat==='weight'&&x.ts>Date.now()-30*864e5).sort((a,b)=>a.ts-b.ts);if(pts.length<2)return`<div class="card"><h3>⚖️ Weight</h3><p class="mute">${pts.length?'Latest: '+fW(pts[0].wt)+'. Log on another day to see your trend.':'Log your weight on the Home tab to see your trend here.'}</p></div>`;const v=pts.map(x=>toU(x.wt)),mn=Math.min(...v),mx=Math.max(...v),sp=Math.max(mx-mn,.5),t0=pts[0].ts,tr=pts[pts.length-1].ts-t0||1,xy=pts.map((x,i)=>[10+(x.ts-t0)/tr*280,70-(v[i]-mn)/sp*55]),ch=v[v.length-1]-v[0];return`<div class="card"><h3>⚖️ Weight, last 30 days</h3><svg viewBox="0 0 300 90" width="100%" role="img" aria-label="Weight trend"><polyline fill="none" stroke="var(--pink)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" points="${xy.map(p=>p.join(',')).join(' ')}"/>${xy.map(p=>`<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--pink)"/>`).join('')}</svg><div class="mute">Now ${v[v.length-1]} ${S.set.unit} · ${ch>=0?'+':''}${ch.toFixed(1)} ${S.set.unit} over this period · low ${mn}, high ${mx}</div></div>`})()}
+<div class="card"><h3>Today in numbers</h3><p>💧 ${(s.water/1000).toFixed(2)} L<br>🏋️ ${s.gym} min workout<br>📚 ${s.study} min study<br>🧴 ${s.skin}/2 skincare<br>⭐ ${s.xp} XP earned</p></div>
+<div class="card"><h3>Entries this week</h3><p>${days.map(d=>`${d.l}: ${d.s.n}`).join(' · ')}</p></div>`}
+function me(){const s=S.set;return`<h1>Me 🌷</h1><div class="card"><h3>Check-ins</h3><p class="mute">Playful nudges while this app is open. Skip any one and I’ll carry on later.</p>
+<label class="mute">Weight unit</label><select onchange="S.set.unit=this.value;save()"><option value="kg" ${s.unit==='kg'?'selected':''}>Kilograms (kg)</option><option value="lb" ${s.unit==='lb'?'selected':''}>Pounds (lb)</option></select><label class="mute">Your name</label><input value="${esc(s.name)}" onchange="S.set.name=this.value;save()">
+<label class="mute">How often</label><select onchange="S.set.iv=+this.value;save()">${[30,60,90,120,180].map(v=>`<option value="${v}" ${v===s.iv?'selected':''}>Every ${v>=60?v/60+' h':v+' min'}</option>`).join('')}</select>
+<div class="row"><div><label class="mute">Waking from</label><input type="number" min="0" max="23" value="${s.from}" onchange="S.set.from=+this.value;save()"></div><div><label class="mute">Quiet from</label><input type="number" min="1" max="24" value="${s.to}" onchange="S.set.to=+this.value;save()"></div></div>
+<div class="row"><button onclick="S.set.paused=!S.set.paused;save();render()">${s.paused?'▶ Resume check-ins':'⏸ Pause check-ins'}</button><button onclick="try{Notification.requestPermission().then(()=>toast('Updated'))}catch(e){toast('Notifications not supported here')}">🔔 Allow notifications</button></div></div>
+<div class="card"><h3>Privacy</h3><p>Everything stays on this device, private by default. The camera opens only when you tap a camera button. This app never watches your camera, microphone or location in the background, and location is typed by you.</p>
+<div class="row"><button onclick="exp()">Export data</button><button onclick="if(confirm('Delete all photos?')){S.e.forEach(x=>x.photo=null);S.chat.forEach(x=>x.photo=null);save();toast('Photos deleted')}">Delete all photos</button><button onclick="if(confirm('Delete your chats?')){S.chat=[];save();toast('Chats deleted')}">Delete chats</button><button style="background:var(--pink);color:#fff" onclick="if(confirm('Delete your entire history? This cannot be undone.')){S.e=[];S.chat=[];save();render();toast('All deleted')}">Delete everything</button></div></div>`}
+function exp(){const a=document.createElement('a');a.href='data:application/json;charset=utf-8,'+encodeURIComponent(JSON.stringify(S));a.download='my-day.json';a.click()}
+// story
+function story(k){const es=dayE(k),s=stats(k),P=(t,b)=>`<div class="pg"><h2>${t}</h2>${b}</div>`,li=x=>`<div>${tm(x.ts)} · ${esc(x.title)} ✓${x.mins?' '+x.mins+' min':''}${x.mood?' '+x.mood:''}</div>${x.photo?`<img src="${x.photo}" alt="">`:''}${x.note?`<div class="mute">“${esc(x.note)}”</div>`:''}`,pg=[];
+if(!es.length){toast('Nothing recorded that day yet');return}
+pg.push(P(`✨ ${esc(S.set.name)}’s Day ✨`,`<div class="big2">${dlong(k)}</div><div class="mute">${es.length} moments · ${s.photos} photos. Swipe →</div>`));
+const mor=es.filter(x=>x.cat==='wake'||x.cat==='skin'||(x.cat==='meal'&&/breakfast/i.test(x.title)));
+if(mor.length)pg.push(P('Good morning 🌅',`<div class="big2">${dlong(k).split(',')[0]} started at ${tm(es[0].ts)}…</div>`+mor.map(li).join('')));
+const wk=es.filter(x=>x.cat==='work'||x.cat==='study');if(wk.length)pg.push(P('Work & study 💼',wk.map(li).join('')));
+const ml=es.filter(x=>x.cat==='meal');if(ml.length)pg.push(P('What I ate 🍓',`<div class="grid">${ml.filter(x=>x.photo).map(x=>`<img src="${x.photo}" alt="">`).join('')}</div>`+ml.map(x=>`<div>${tm(x.ts)} · ${esc(x.title)}${x.eat&&x.eat!==x.title?' — '+esc(x.eat):''}</div>`).join('')));
+const gy=es.filter(x=>x.cat==='gym');if(gy.length)pg.push(P('Workout 🏋️',gy.map(li).join('')));
+const mm=es.filter(x=>['moment','out','journal','mood'].includes(x.cat)||(x.photo&&!['meal','gym','wake','skin','work','study'].includes(x.cat)));if(mm.length)pg.push(P('Little moments 📸',mm.map(x=>li(x)+(x.place?`<div class="mute">@ ${esc(x.place)}</div>`:'')).join('')));
+pg.push(P('Today in numbers',`<div class="big2">💧 ${(s.water/1000).toFixed(2)} L<br>🏋️ ${s.gym} min<br>📚 ${s.study} min<br>🧴 ${s.skin}/2<br>⭐ ${s.xp} XP<br>🔥 ${streak()} day streak${s.wt?'<br>⚖️ '+fW(s.wt):''}</div>`));
+const b=[];b.push('You started at '+tm(es[0].ts));if(wk.length)b.push('put in your work and study time');if(gy.length)b.push('got your workout done');if(s.water)b.push('drank '+(s.water/1000).toFixed(2)+' L of water');if(s.skin)b.push('did your skincare');
+pg.push(P('Good night 🌙',`<div class="big2">${b.length>1?b.slice(0,-1).join(', ')+' and '+b[b.length-1]:b[0]}. I’m proud of the effort you put in. Now go rest 💗</div><div class="mute">Based only on what you recorded.</div>`));
+$('ov').innerHTML=`<div class="story"><div class="sbar"><b>Story</b><button onclick="closeSheet()">✕ Close</button></div><div class="pgs">${pg.join('')}</div></div>`}
+function render(){document.getElementById('nav').innerHTML=[['home','Home','🏠'],['chat','Companion','💬'],['day','My Day','📖'],['prog','Progress','📊'],['me','Me','🌷']].map(t=>`<button class="${tab===t[0]?'on':''}" onclick="tab='${t[0]}';render();scrollTo(0,0)"><b>${t[2]}</b>${t[1]}</button>`).join('');
+$('app').innerHTML={home,chat,day,prog,me}[tab]();if(tab==='chat'){const c=$('cl');c&&c.lastElementChild&&c.lastElementChild.scrollIntoView({block:'end'})}}
+render();
+</script></body></html>
